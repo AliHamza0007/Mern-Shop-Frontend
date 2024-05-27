@@ -1,0 +1,471 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  user-select: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.red {
+  color: red;
+}
+
+.purple {
+  color: rgb(47, 0, 255);
+}
+
+.green {
+  color: rgb(0, 195, 0);
+}
+.relative {
+  position: relative;
+}
+@import './admin-styles/mixin';
+@import '_home.scss';
+@import '_cart.scss';
+@import '_shipping.scss';
+@import '_login.scss';
+@import '_search.scss';
+@import '_product_card.scss';
+@import './admin-styles/dashboard';
+@import './admin-styles/products';
+@import './admin-styles/chart';
+@import './admin-styles/dashboardapp';
+@import './admin-styles/mediaquery';
+
+.admin-container {
+  @include grid(1fr 4fr, 2rem);
+  height: 100vh;
+  @media screen and (min-width: 530px) {
+    padding: 3rem;
+  }
+
+  background-color: rgb(247, 247, 247);
+
+  > aside {
+    width: 100%;
+    background-color: white;
+    padding: 1rem;
+    z-index: 10;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    > div {
+      margin: 2rem 1rem;
+
+      .admin-sidebar-close {
+        @include btn();
+        position: absolute;
+        right: 2rem;
+        top: -0.5rem;
+        padding: 5px;
+        background: rgb(196, 186, 186);
+        border-radius: 50%;
+        z-index: 2;
+        border: 1px solid white;
+        transition: background-color 0.3s, border-color 0.3s;
+        &:hover {
+          background: white;
+          border-color: gray;
+        }
+      }
+
+      > h5 {
+        @include heading(2px);
+        opacity: 0.8;
+        margin: 1rem 0;
+      }
+
+      > ul {
+        @include flex(column, unset, unset, 0.5rem);
+        list-style: none;
+
+        > li {
+          padding: 0.5rem 1rem;
+          border-radius: 10px;
+
+          a {
+            color: rgba(0, 0, 0, 0.825);
+            @include flex(row, unset);
+          }
+        }
+      }
+    }
+  }
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+
+  th,
+  td {
+    padding: 8px;
+    text-align: left;
+    vertical-align: middle;
+  }
+
+  th {
+    font-weight: bold;
+    color: #0000009e;
+    font-size: 1.1rem;
+    font-weight: 400;
+    padding: 2rem 1rem;
+  }
+
+  tbody {
+    tr {
+      box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.093);
+    }
+
+    td {
+      padding: 1rem;
+
+      img {
+        width: 4rem;
+        height: 4rem;
+        object-fit: contain;
+        border-radius: 10px;
+      }
+
+      a {
+        text-decoration: none;
+        background-color: rgba(44, 104, 255, 0.455);
+        color: rgba(44, 104, 255);
+        padding: 0.25rem 0.5rem;
+        border-radius: 10px;
+      }
+
+      button {
+        width: 2rem;
+        height: 2rem;
+        font-size: 1.1rem;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        cursor: pointer;
+        color: rgb(255, 44, 44);
+
+        &:hover {
+          opacity: 0.6;
+        }
+      }
+
+      &:first-child {
+        border-left: none;
+      }
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+}
+
+.table-pagination {
+  @include flex;
+  padding: 2rem;
+
+  > button {
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: rgba(0, 115, 255);
+    color: white;
+
+    &:disabled {
+      background-color: rgba(0, 115, 255, 0.1);
+      cursor: not-allowed;
+    }
+  }
+}
+
+#hamburger {
+  display: grid;
+  place-items: center;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: fixed;
+  top: 0;
+  left: 1rem;
+  font-size: 2rem;
+  background-color: white;
+  border-radius: 50%;
+  z-index: 9;
+}
+
+#close-sidebar {
+  width: 80%;
+  margin: 1rem auto;
+  display: block;
+  padding: 0.75rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: rgb(168, 2, 2);
+  color: white;
+  border-radius: 10px;
+}
+
+.loader {
+  width: 100%;
+  height: 100vh;
+  @include flex;
+
+  > div {
+    @include square(10rem);
+    border-radius: 50%;
+    border-top: 1rem solid rgb(43, 43, 43);
+    border-left: 1rem solid rgb(43, 43, 43);
+    border-right: 1rem solid #fff;
+    border-bottom: 1rem solid #fff;
+    animation: loading-animation 0.5s linear infinite;
+  }
+}
+
+@keyframes loading-animation {
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+@keyframes up-and-down {
+  to {
+    transform: translate(-50%, -20%);
+  }
+}
+th {
+  font-weight: 700 !important;
+}
+.container {
+  max-width: 1267px;
+  margin: auto;
+  overflow: auto;
+  padding: 0 10px;
+  width: 100%;
+  > h1 {
+    @include heading;
+    margin: 1rem 0;
+    font-weight: 400;
+  }
+}
+.heading {
+  @include flex(row, center, center, 1rem);
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 1rem 0;
+}
+.navbar {
+  padding: 0.5rem 15px;
+  z-index: 99999;
+  background: white;
+}
+.navbarScroll {
+  position: sticky;
+  top: 0;
+}
+.header {
+  @include flex(row, flex-end, stretch, 1.3rem);
+
+  > button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  > a,
+  > button {
+    color: gray;
+    font-size: 1rem;
+
+    &:hover {
+      color: red;
+    }
+  }
+
+  > dialog {
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100px;
+    position: absolute;
+    left: calc(100% - 100px);
+    top: 5%;
+
+    > div {
+      @include flex(column, flex-start, center, 1rem);
+    }
+  }
+}
+
+.skeleton-loader {
+  display: flex;
+  flex-direction: column;
+}
+
+.skeleton-shape {
+  height: 30px;
+  width: 100%;
+  background-color: #ddd;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+// producyt not found css
+.products-relative {
+  position: relative;
+  > .not-found {
+    position: absolute;
+    left: 40%;
+    top: 12rem;
+    z-index: 3;
+  }
+}
+.not-found-home {
+  text-align: center;
+}
+
+.cart-empty {
+  @include flex(column, center, center);
+
+  height: 100%;
+  width: 100%;
+  > img {
+    @include square(50vh);
+  }
+
+  > a {
+    color: white;
+    background-color: red;
+    padding: 0 2rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+    border-radius: 2rem;
+    &:hover {
+      background-color: rgba(44, 104, 255);
+    }
+  }
+}
+.center {
+  height: 100%;
+  width: 100%;
+  @include flex(row, center, center);
+}
+
+.notfound {
+  @include flex(column, center, center);
+  height: 90vh;
+  background: #030005;
+  .contentBox {
+    position: relative;
+
+    > h1 {
+      font-family: montserrat, sans-serif;
+      font-size: calc(100vw - 70vw);
+      font-weight: 900;
+      color: #030005;
+      text-transform: uppercase;
+      text-shadow: -1px -1px 0 #8400ff, 1px 1px 0 #ff005a;
+      letter-spacing: -20px;
+      user-select: text;
+    }
+    > h2 {
+      font-family: montserrat, sans-serif;
+      position: absolute;
+      left: 50%;
+      top: 60%;
+      transform: translate(-50%, -50%);
+      width: 100vw;
+      font-size: calc(100vw - 97vw);
+      text-align: center;
+      font-weight: 700;
+      color: #fff;
+      text-transform: uppercase;
+      text-shadow: 0 2px 0 #8400ff;
+      letter-spacing: 13px;
+      margin: 0;
+      user-select: text;
+    }
+    > div {
+      position: absolute;
+      left: 50%;
+      top: 70%;
+      @media screen and (max-width: 530px) {
+        top: 85%;
+      }
+      transform: translate(-50%, -50%);
+    }
+    > div a {
+      margin-bottom: 1rem;
+      font-family: montserrat, sans-serif;
+      display: inline-block;
+      text-transform: uppercase;
+      color: #ff005a;
+      text-decoration: none;
+      border: 2px solid;
+      background: 0 0;
+      padding: 10px 40px;
+      font-size: 14px;
+      font-weight: 700;
+      -webkit-transition: 0.2s all;
+      transition: 0.2s all;
+      &:hover {
+        transition: 0.5s all;
+
+        color: #8400ff;
+      }
+    }
+  }
+}
+.checkout-container {
+  max-width: 400px;
+  width: 100%;
+  margin: auto;
+  > form {
+    @include flex(column, flex-start, stretch, 2rem);
+
+    > button {
+      @include btn;
+      background-color: rgba(0, 115, 255);
+      color: white;
+      font-size: 1.1rem;
+      padding: 0.6rem;
+
+      &:hover {
+        background-color: rgba(8, 231, 94);
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -11,19 +11,18 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Column } from 'react-table';
 
-import { Skeleton } from 'src/components/Loader';
-import AdminSidebar from 'src/components/admin/AdminSidebar';
-import TableHOC from 'src/components/admin/TableHOC';
+import { Skeleton } from '../../../components/Loader';
+import AdminSidebar from '../../../components/admin/AdminSidebar';
+import TableHOC from '../../../components/admin/TableHOC';
 import {
   useAllCouponsQuery,
   useDeleteCouponMutation,
   useUpdateCouponMutation,
-} from 'src/redux/api/couponApi';
-import { RootState } from 'src/redux/store';
+} from '../../../redux/api/couponApi';
+import { RootState } from '../../../redux/store';
 import {
   CustomError,
   couponRequest,
-  couponResponse,
   createCouponResponse,
   getCouponAllResponse,
 } from '../../../types/api-types';

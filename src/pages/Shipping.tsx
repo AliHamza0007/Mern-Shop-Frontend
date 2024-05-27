@@ -4,8 +4,8 @@ import toast from 'react-hot-toast';
 import { BiArrowBack } from 'react-icons/bi';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { saveShippingInfo } from 'src/redux/reducer/cartReducer';
-import { RootState } from 'src/redux/store';
+import { saveShippingInfo } from '../redux/reducer/cartReducer';
+import { RootState } from '../redux/store';
 const Shipping = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();

@@ -1,7 +1,7 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { responseToast } from 'src/utils/Feature';
+import { responseToast } from '../../../utils/Feature';
 
 import AdminSidebar from '../../../components/admin/AdminSidebar';
 import { useNewProductMutation } from '../../../redux/api/productAPI';
@@ -109,7 +109,7 @@ const NewProduct = () => {
               <input required type="file" onChange={changeImageHandler} />
             </div>
 
-            {photoPrev && <img src={photoPrev} alt="New Image" />}
+            {photoPrev && <img ../../..={photoPrev} alt="New Image" />}
             <button type="submit">Create</button>
           </form>
         </article>

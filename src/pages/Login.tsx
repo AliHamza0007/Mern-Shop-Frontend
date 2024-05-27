@@ -6,9 +6,9 @@ import toast from 'react-hot-toast';
 import { FcGoogle } from 'react-icons/fc';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { auth } from 'src/firebase';
-import { getUser, useLoginMutation } from 'src/redux/api/userAPI';
-import { userExist, userNotExist } from 'src/redux/reducer/userReducer';
+import { auth } from '../firebase';
+import { getUser, useLoginMutation } from '../redux/api/userAPI';
+import { userExist, userNotExist } from '../redux/reducer/userReducer';
 import { MessageResponse } from '../types/api-types';
 
 const Login = () => {

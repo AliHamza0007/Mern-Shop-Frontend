@@ -2,17 +2,17 @@ import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { FaTrash } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
-import { Skeleton } from 'src/components/Loader';
+import { Skeleton } from '../../../components/Loader';
 
-import AdminSidebar from 'src/components/admin/AdminSidebar';
+import AdminSidebar from '../../../components/admin/AdminSidebar';
 import {
   useDeleteProductMutation,
   useProductDetailsQuery,
   useUpdateProductMutation,
-} from 'src/redux/api/productAPI';
-import { RootState } from 'src/redux/store';
+} from '../../../redux/api/productAPI';
+import { RootState } from '../../../redux/store';
 const server = import.meta.env.VITE_SERVER_URL;
-import { responseToast } from 'src/utils/Feature';
+import { responseToast } from '../../../utils/Feature';
 
 const Productmanagement = () => {
   const { user } = useSelector((state: RootState) => state.userReducer);

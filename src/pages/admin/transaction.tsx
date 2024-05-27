@@ -8,7 +8,7 @@ import TableHOC from '../../components/admin/TableHOC';
 import { useAllOrdersQuery } from '../../redux/api/orderAPI';
 import { RootState } from '../../redux/store';
 import { CustomError } from '../../types/api-types';
-import { Skeleton } from 'src/components/Loader';
+import { Skeleton } from '../../components/Loader';
 
 interface DataType {
   user: string;
@@ -79,7 +79,11 @@ const Transaction = () => {
               {i.status}
             </span>
           ),
-          action: <Link className='' to={`/admin/transaction/${i._id}`}>Manage</Link>,
+          action: (
+            <Link className="" to={`/admin/transaction/${i._id}`}>
+              Manage
+            </Link>
+          ),
         })),
       );
   }, [data]);

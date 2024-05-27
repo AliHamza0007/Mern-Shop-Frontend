@@ -1,12 +1,12 @@
 import { useSelector } from 'react-redux';
-import AdminSidebar from 'src/components/admin/AdminSidebar';
-import { BarChart } from 'src/components/admin/Charts';
-import { RootState } from 'src/redux/store';
-import { useBarQuery } from 'src/redux/api/dashboardAPI';
+import AdminSidebar from '../../../components/admin/AdminSidebar';
+import { BarChart } from '../../../components/admin/Charts';
+import { RootState } from '../../../redux/store';
+import { useBarQuery } from '../../../redux/api/dashboardAPI';
 import { CustomError } from '../../../types/api-types';
 import toast from 'react-hot-toast';
-import { getLastMonths } from 'src/utils/Feature';
-import { Skeleton } from 'src/components/Loader';
+import { getLastMonths } from '../../../utils/Feature';
+import { Skeleton } from '../../../components/Loader';
 import React from 'react';
 
 const { last12Months, last6Months } = getLastMonths();

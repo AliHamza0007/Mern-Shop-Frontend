@@ -5,14 +5,14 @@ import { FaRegBell } from 'react-icons/fa';
 import { HiTrendingDown, HiTrendingUp } from 'react-icons/hi';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import { Skeleton } from 'src/components/Loader';
-import AdminSidebar from 'src/components/admin/AdminSidebar';
-import { BarChart, DoughnutChart } from 'src/components/admin/Charts';
-import Table from 'src/components/admin/DashboardTable';
-import { useStatsQuery } from 'src/redux/api/dashboardAPI';
+import { Skeleton } from '../../components/Loader';
+import AdminSidebar from '../../components/admin/AdminSidebar';
+import { BarChart, DoughnutChart } from '../../components/admin/Charts';
+import Table from '../../components/admin/DashboardTable';
+import { useStatsQuery } from '../../redux/api/dashboardAPI';
 
-import { RootState } from 'src/redux/store';
-import { getLastMonths } from 'src/utils/Feature';
+import { RootState } from '../../redux/store';
+import { getLastMonths } from '../../utils/Feature';
 
 const userImg =
   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp';

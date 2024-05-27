@@ -3,14 +3,17 @@ import toast from 'react-hot-toast';
 import { FaTrash } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import { Column } from 'react-table';
-import { Skeleton } from 'src/components/Loader';
-import AdminSidebar from 'src/components/admin/AdminSidebar';
-import TableHOC from 'src/components/admin/TableHOC';
+import { Skeleton } from '../../components/Loader';
+import AdminSidebar from '../../components/admin/AdminSidebar';
+import TableHOC from '../../components/admin/TableHOC';
 
-import { useAllUsersQuery, useDeleteUserMutation } from 'src/redux/api/userAPI';
-import { RootState } from 'src/redux/store';
+import {
+  useAllUsersQuery,
+  useDeleteUserMutation,
+} from '../../redux/api/userAPI';
+import { RootState } from '../../redux/store';
 import { CustomError } from '../../types/api-types';
-import { responseToast } from 'src/utils/Feature';
+import { responseToast } from '../../utils/Feature';
 
 interface DataType {
   avatar: ReactElement;

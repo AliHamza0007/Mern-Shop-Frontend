@@ -2,17 +2,17 @@ import React from 'react';
 import { FaTrash } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
-import { Skeleton } from 'src/components/Loader';
-import AdminSidebar from 'src/components/admin/AdminSidebar';
+import { Skeleton } from '../../../components/Loader';
+import AdminSidebar from '../../../components/admin/AdminSidebar';
 
 import {
   useDeleteOrderMutation,
   useOrderDetailsQuery,
   useUpdateOrderMutation,
-} from 'src/redux/api/orderAPI';
-import { RootState } from 'src/redux/store';
+} from '../../../redux/api/orderAPI';
+import { RootState } from '../../../redux/store';
 import { OrderItemType, OrderType } from '../../../types/types';
-import { responseToast } from 'src/utils/Feature';
+import { responseToast } from '../../../utils/Feature';
 
 const defaultData: OrderType = {
   shippingInfo: {

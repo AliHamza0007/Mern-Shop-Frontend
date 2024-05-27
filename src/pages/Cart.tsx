@@ -3,16 +3,16 @@ import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { VscError } from 'react-icons/vsc';
 import { useDispatch, useSelector } from 'react-redux';
-import CartEmpty from 'src/components/CartEmpty';
+import CartEmpty from '../components/CartEmpty';
 import { Link } from 'react-router-dom';
-import CartItemCard from 'src/components/CartItemCard';
+import CartItemCard from '../components/CartItemCard';
 import {
   addToCart,
   calculatePrice,
   discountApplied,
   removeCartItem,
-} from 'src/redux/reducer/cartReducer';
-import { RootState } from 'src/redux/store';
+} from '../redux/reducer/cartReducer';
+import { RootState } from '../redux/store';
 import { CartItemType } from '../types/types';
 const Cart = () => {
   const server = import.meta.env.VITE_SERVER_URL;

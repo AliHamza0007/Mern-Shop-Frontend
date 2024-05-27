@@ -5,13 +5,13 @@ import { Column } from 'react-table';
 import AdminSidebar from '../../components/admin/AdminSidebar';
 import TableHOC from '../../components/admin/TableHOC';
 
-import { useAllProductsQuery } from 'src/redux/api/productAPI';
+import { useAllProductsQuery } from '../../redux/api/productAPI';
 import { useSelector } from 'react-redux';
-import { RootState } from 'src/redux/store';
+import { RootState } from '../../redux/store';
 
 import { CustomError } from '../../types/api-types';
 import toast from 'react-hot-toast';
-import { Skeleton } from 'src/components/Loader';
+import { Skeleton } from '../../components/Loader';
 const server = import.meta.env.VITE_SERVER_URL;
 interface DataType {
   photo: ReactElement;

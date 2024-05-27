@@ -1,84 +1,30 @@
-link => https://mern-shop-frontend.onrender.com
+# React + TypeScript + Vite
 
-Mern Shop
-Welcome to our E-Commerce website project! This project utilizes various technologies and services to create a comprehensive online shopping experience.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Features
+Currently, two official plugins are available:
 
-- **SASS:** Utilizes SASS for styling to maintain a scalable and maintainable CSS codebase.
-- **TypeScript:** Implements TypeScript for static typing and enhanced code quality.
-- **React.js:** Utilizes React.js for building dynamic user interfaces with reusable components.
-- **Stripe:** Integrates Stripe for secure and seamless payment processing.
-- **MongoDB:** Uses MongoDB as the database to store and manage product, user, and order data.
-- **Firebase Authentication:** Implements Firebase Authentication for user authentication and authorization.
-- **Third-party Dashboard:** Integrates a third-party dashboard for enhanced management and analytics.
-- **API Integration:** Implements APIs for integrating with external services and data sources.
-- **CRUD Operations:** Provides CRUD (Create, Read, Update, Delete) operations for managing products, users, and orders.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Getting Started
+## Expanding the ESLint configuration
 
-To get started with the project, follow these steps:
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-1. Clone the repository to your local machine:
+- Configure the top-level `parserOptions` property like this:
 
-   ```
-   git clone https://github.com/your-username/your-e-commerce-project.git
-   ```
-
-2. Install dependencies:
-
-   ```
-   cd your-e-commerce-project
-   npm install
-   ```
-
-3. Set up environment variables:
-
-   - Create a `.env` file in the root directory.
-   - Add necessary environment variables such as database connection string, Stripe API keys, etc.
-
-4. Start the development server:
-
-   ```
-   npm start
-   ```
-
-5. Open your browser and navigate to `http://localhost:3000` to view the website.
-
-## Deployment
-
-The project can be deployed to various platforms such as Render, Heroku, Netlify, etc. Here's a general outline of the deployment process:
-
-1. Build the project for production:
-
-   ```
-   npm run build
-   ```
-
-2. Deploy the built files to your chosen hosting platform.
-
-3. Set up necessary configurations and environment variables on the hosting platform.
-
-4. Access your deployed website and start selling!
-
-## Contributing
-
-Contributions are welcome! If you'd like to contribute to the project, please follow these guidelines:
-
-- Fork the repository.
-- Create a new branch (`git checkout -b feature/your-feature`).
-- Commit your changes (`git commit -am 'Add some feature'`).
-- Push to the branch (`git push origin feature/your-feature`).
-- Create a new Pull Request.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
-## Contact
-
-For any inquiries or feedback, feel free to contact us at [your-email@example.com](mailto:your-email@example.com).
-
+```js
+export default {
+  // other rules...
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: ['./tsconfig.json', './tsconfig.node.json'],
+    tsconfigRootDir: __dirname,
+  },
+}
 ```
 
-Feel free to customize and expand upon this template to better suit your project's specific details and requirements.
+- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
+- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list

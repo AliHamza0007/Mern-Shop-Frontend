@@ -7,7 +7,7 @@ import { Skeleton } from 'src/components/Loader';
 import ProductCard from 'src/components/ProductCard';
 import { useLatestProductsQuery } from 'src/redux/api/productAPI';
 import { addToCart } from 'src/redux/reducer/cartReducer';
-import { CartItemType } from 'src/types/types';
+import { CartItemType } from '../types/types';
 const Home = () => {
   const dispatch = useDispatch();
   const addToCartHandler = (cartItem: CartItemType) => {

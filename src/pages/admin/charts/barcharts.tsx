@@ -3,7 +3,7 @@ import AdminSidebar from 'src/components/admin/AdminSidebar';
 import { BarChart } from 'src/components/admin/Charts';
 import { RootState } from 'src/redux/store';
 import { useBarQuery } from 'src/redux/api/dashboardAPI';
-import { CustomError } from 'src/types/api-types';
+import { CustomError } from '../../../types/api-types';
 import toast from 'react-hot-toast';
 import { getLastMonths } from 'src/utils/Feature';
 import { Skeleton } from 'src/components/Loader';

@@ -11,9 +11,10 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { auth } from 'src/firebase';
-import { userNotExist } from 'src/redux/reducer/userReducer';
+
 import { RootState } from 'src/redux/store';
-import { UserType } from 'src/types/types';
+import { UserType } from '../types/types';
+import { userNotExist } from 'src/redux/reducer/userReducer';
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { user } = useSelector((state: RootState) => state.userReducer);

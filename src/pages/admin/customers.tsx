@@ -9,7 +9,7 @@ import TableHOC from 'src/components/admin/TableHOC';
 
 import { useAllUsersQuery, useDeleteUserMutation } from 'src/redux/api/userAPI';
 import { RootState } from 'src/redux/store';
-import { CustomError } from 'src/types/api-types';
+import { CustomError } from '../../types/api-types';
 import { responseToast } from 'src/utils/Feature';
 
 interface DataType {

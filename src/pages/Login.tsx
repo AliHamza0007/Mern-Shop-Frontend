@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { auth } from 'src/firebase';
 import { getUser, useLoginMutation } from 'src/redux/api/userAPI';
 import { userExist, userNotExist } from 'src/redux/reducer/userReducer';
-import { MessageResponse } from 'src/types/api-types';
+import { MessageResponse } from '../types/api-types';
 
 const Login = () => {
   const navigate = useNavigate();

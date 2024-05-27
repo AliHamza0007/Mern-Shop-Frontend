@@ -6,8 +6,8 @@ import {
   DeleteUserRequest,
   MessageResponse,
   UserResponse,
-} from 'src/types/api-types';
-import { UserType } from 'src/types/types';
+} from '../../types/api-types';
+import { UserType } from '../../types/types';
 const server = import.meta.env.VITE_SERVER_URL;
 const server_v1 = import.meta.env.VITE_SERVER_VERSION;
 export const userAPI = createApi({

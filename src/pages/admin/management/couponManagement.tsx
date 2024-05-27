@@ -26,7 +26,7 @@ import {
   couponResponse,
   createCouponResponse,
   getCouponAllResponse,
-} from 'src/types/api-types';
+} from '../../../types/api-types';
 
 type DataType = {
   _id: string;

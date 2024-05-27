@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { UserReducerInitialState } from '../../types/reducer-types';
-import { UserType } from 'src/types/types';
+import { UserType } from '../../types/types';
 
 const initialState: UserReducerInitialState = {
   user: null,

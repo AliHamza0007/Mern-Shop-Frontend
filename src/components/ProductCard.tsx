@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaPlus } from 'react-icons/fa';
-import { CartItemType } from 'src/types/types';
+import { CartItemType } from '../types/types';
 
 interface ProductsProps {
   name: string;

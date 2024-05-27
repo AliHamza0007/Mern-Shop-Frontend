@@ -10,8 +10,8 @@ import {
   useSearchProductsQuery,
 } from 'src/redux/api/productAPI';
 import { addToCart } from 'src/redux/reducer/cartReducer';
-import { CustomError } from 'src/types/api-types';
-import { CartItemType } from 'src/types/types';
+import { CustomError } from '../types/api-types';
+import { CartItemType } from '../types/types';
 const server = import.meta.env.VITE_SERVER_URL;
 
 const Search = () => {

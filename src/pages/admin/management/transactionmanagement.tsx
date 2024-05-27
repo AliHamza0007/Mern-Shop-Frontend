@@ -11,7 +11,7 @@ import {
   useUpdateOrderMutation,
 } from 'src/redux/api/orderAPI';
 import { RootState } from 'src/redux/store';
-import { OrderItemType, OrderType } from 'src/types/types';
+import { OrderItemType, OrderType } from '../../../types/types';
 import { responseToast } from 'src/utils/Feature';
 
 const defaultData: OrderType = {

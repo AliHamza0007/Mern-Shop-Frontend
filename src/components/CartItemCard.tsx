@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaMinus, FaPlus, FaTrash } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { CartItemType } from 'src/types/types';
+import { CartItemType } from '../types/types';
 interface Component {
   cartItem: any;
 }
@@ -29,7 +29,7 @@ const CartItemCard = ({
           {name}
         </Link>
         <Link to="#" className="cart-item-price">
-          Rs  {price}
+          Rs {price}
         </Link>
       </article>
       <div className="quantity-div">

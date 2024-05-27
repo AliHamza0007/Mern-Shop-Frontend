@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router-dom';
 import AdminSidebar from 'src/components/admin/AdminSidebar';
 import { useNewCouponMutation } from 'src/redux/api/couponApi';
 import { RootState } from 'src/redux/store';
-import { couponRequest, createCouponResponse } from 'src/types/api-types';
+import { couponRequest, createCouponResponse } from '../../../types/api-types';
 const allLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
 const allNumbers = '1234567890';
 const allSymbols = '!@#$%^&*()_+';

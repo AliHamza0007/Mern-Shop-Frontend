@@ -7,7 +7,7 @@ import { LineChart } from 'src/components/admin/Charts';
 import { useLineQuery } from 'src/redux/api/dashboardAPI';
 
 import { RootState } from 'src/redux/store';
-import { CustomError } from 'src/types/api-types';
+import { CustomError } from '../../../types/api-types';
 import { getLastMonths } from 'src/utils/Feature';
 
 const { last12Months: months } = getLastMonths();

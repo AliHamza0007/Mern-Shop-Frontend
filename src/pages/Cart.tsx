@@ -13,7 +13,7 @@ import {
   removeCartItem,
 } from 'src/redux/reducer/cartReducer';
 import { RootState } from 'src/redux/store';
-import { CartItemType } from 'src/types/types';
+import { CartItemType } from '../types/types';
 const Cart = () => {
   const server = import.meta.env.VITE_SERVER_URL;
   const { cartItems, subtotal, tax, total, shippingCharges, discount } =
@@ -87,11 +87,11 @@ const Cart = () => {
             </main>
             <aside className="summary">
               <div>
-                <p>Subtotal Rs  {subtotal}</p>
-                <p>Shipping Charges Rs  {shippingCharges}</p>
-                <p>Tax Rs  {tax}</p>
-                <p>Discount Rs  {discount}</p>
-                <p>Total Rs  {total}</p>
+                <p>Subtotal Rs {subtotal}</p>
+                <p>Shipping Charges Rs {shippingCharges}</p>
+                <p>Tax Rs {tax}</p>
+                <p>Discount Rs {discount}</p>
+                <p>Total Rs {total}</p>
 
                 <input
                   type="text"
@@ -103,7 +103,7 @@ const Cart = () => {
                 {couponCode &&
                   (isValidCouponCode ? (
                     <div className="green">
-                      Rs  {discount} off using the <code>{couponCode}</code>
+                      Rs {discount} off using the <code>{couponCode}</code>
                     </div>
                   ) : (
                     <div className="red">

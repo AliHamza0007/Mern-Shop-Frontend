@@ -1,0 +1,131 @@
+.search-page {
+  @include flex(row, flex-start, stretch, 0);
+  min-height: calc(100vh - 6.5vh);
+  > .sidebar-togler {
+    z-index: 999999999;
+    visibility: hidden;
+    @include btn();
+    > svg {
+      font-size: 20px;
+    }
+
+    height: 1rem;
+    position: absolute;
+    top: 0.5rem;
+    left: 1rem;
+  }
+  @media screen and (max-width: 900px) {
+    > .sidebar-togler {
+      visibility: visible;
+    }
+    > .sidebar-open {
+      left: 0;
+      opacity: 1;
+      transition: all 0.5s ease-out;
+    }
+    > .sidebar-closed {
+      opacity: 0;
+      left: -100%;
+      transition: all 0.7s ease-in;
+    }
+  }
+
+  > aside {
+    height: 100vh;
+    z-index: 999;
+    background: white;
+    position: relative;
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.5s ease-out;
+
+    input[type='range'] {
+      cursor: pointer;
+      accent-color: rgb(29, 31, 29) !important;
+    }
+    @media screen and (max-width: 900px) {
+      position: absolute;
+    }
+    > h1 {
+      @include heading;
+    }
+    padding: 10px;
+    box-shadow: 2px 5px 10px rgb(0, 0, 0, 0.247);
+    > div {
+      > p {
+        font-weight: 700;
+      }
+      select,
+      input {
+        width: 10rem;
+        margin: 0.5rem 0;
+        padding: 8px;
+      }
+    }
+  }
+  > main {
+    width: 100%;
+    padding: 0 2rem;
+    > h1 {
+      @include heading;
+    }
+
+    > input {
+      @include inputStyle(50%);
+      @media screen and (max-width: 550px) {
+        @include inputStyle(100%);
+        margin: 1rem 0;
+      }
+      border-radius: 5px;
+      margin: 1rem;
+      font-size: 1.2rem;
+      display: block;
+    }
+    .search-products-list {
+      display: grid;
+      justify-items: center;
+      grid-template-columns: repeat(
+        4,
+        1fr
+      ); /* Default: 5 columns for large screens */
+      gap: 20px; /* Adjust the gap between items as needed */
+
+      @media screen and (max-width: 1200px) {
+        grid-template-columns: repeat(
+          3,
+          1fr
+        ); /* 3 columns for medium screens */
+      }
+
+    
+      @media screen and (max-width: 768px) {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for small screens */
+      }
+
+      @media screen and (max-width: 550px) {
+        grid-template-columns: 1fr; /* 2 columns for small screens */
+      }
+    }
+    > article {
+      @include flex(row, center, center);
+      margin: 2rem;
+      > button {
+        background: rgb(87, 204, 243);
+        color: white;
+        padding: 5px 10px;
+        &:hover {
+          background: rgb(7, 159, 209);
+        }
+        @include flex;
+        @include btn;
+        border-radius: 10px;
+
+        &:disabled {
+          cursor: not-allowed;
+          opacity: 0.5;
+          color: white;
+        }
+      }
+    }
+  }
+}

@@ -1,16 +1,7 @@
 https://mern-shop-frontend.onrender.com
 ```markdown
 
-
-![screencapture-localhost-5173-admin-dashboard-2024-05-24-17_55_37](https://github.com/AliHamza0007/Mern-Shop-Frontend/assets/141808379/15e07a20-9aa1-4719-b070-23230ed22ff0)
-![iPhone-13-PRO-localhost](https://github.com/AliHamza0007/Mern-Shop-Frontend/assets/141808379/8e37407a-f794-4ec7-94e6-34c70f07477d)
-![iPhone-13-PRO-localhost (4)](https://github.com/AliHamza0007/Mern-Shop-Frontend/assets/141808379/20c972be-1ec4-4498-8d33-b060f0701172)
-![iPhone-13-PRO-localhost (3)](https://github.com/AliHamza0007/Mern-Shop-Frontend/assets/141808379/2827ab40-480b-4311-ad7b-bf9bc26ea7c4)
-![iPhone-13-PRO-localhost (2)](https://github.com/AliHamza0007/Mern-Shop-Frontend/assets/141808379/e9d60049-921e-4c2b-b2cb-be051b5aa353)
-![iPhone-13-PRO-localhost (1)](https://github.com/AliHamza0007/Mern-Shop-Frontend/assets/141808379/669a3adf-9e47-4f9e-9e8b-0c5850964565)
-![screencapture-localhost-5173-search-2024-05-24-17_55_08](https://github.com/AliHamza0007/Mern-Shop-Frontend/assets/141808379/d2e99d46-1f06-4689-832c-7e3076dcb7bd)
-![screencapture-localhost-5173-admin-product-2024-05-24-17_55_54](https://github.com/AliHamza0007/Mern-Shop-Frontend/assets/141808379/39bf4b97-c411-4216-9c99-ce8c74813f21)
-
+![iPhone-13-PRO-localhost (1)](https://github.com/AliHamza0007/Mern-Shop-Frontend/assets/141808379/45904a26-202e-4ea5-bb59-2eb49be5ad4c)
 # MERN Shop
 
 MERN Shop is a web application built with React.js for the frontend, utilizing Vite as the build tool. It integrates Stripe for payment processing, Firebase for authentication (including Google login), and MongoDB as the database for storing product data. 

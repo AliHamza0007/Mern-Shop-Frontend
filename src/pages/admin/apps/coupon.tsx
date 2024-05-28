@@ -1,18 +1,13 @@
-import React, {
-  ChangeEvent,
-  FormEvent,
-  MouseEvent,
-  useEffect,
-  useState,
-} from 'react';
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { FaPlus } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import AdminSidebar from '../../../components/admin/AdminSidebar';
-import { useNewCouponMutation } from '../../../redux/api/couponApi';
-import { RootState } from '../../../redux/store';
-import { couponRequest, createCouponResponse } from '../../../types/api-types';
+
+import AdminSidebar from '@/components/admin/AdminSidebar';
+import { useNewCouponMutation } from '@/redux/api/couponApi';
+import { RootState } from '@/redux/store';
+import { couponRequest, createCouponResponse } from '@/types/api-types';
 const allLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
 const allNumbers = '1234567890';
 const allSymbols = '!@#$%^&*()_+';
@@ -28,6 +23,7 @@ const Coupon = () => {
   const [open, setOpen] = useState<boolean>(false);
 
   const [coupon, setCoupon] = useState<string>('');
+  const [couponId] = useState<string>('');
   const [amount, setAmount] = useState<string>('');
   const [newCoupon] = useNewCouponMutation();
 
@@ -65,7 +61,8 @@ const Coupon = () => {
   const { user } = useSelector((state: RootState) => state.userReducer);
   const objectData: couponRequest = {
     coupon,
-    amount,
+    couponId,
+    amount:Number(amount),
     userId: user?._id,
   };
   const ResetInputs = () => {
@@ -74,15 +71,22 @@ const Coupon = () => {
   };
   const CouponHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const { data }: { data: createCouponResponse } = await newCoupon(
-      objectData,
-    );
+    try {
+      const { data }: { data?: createCouponResponse } = await newCoupon(
+        objectData,
+      );
 
-    if (data) {
-      toast.success(data.message);
-      navigate('/admin/coupon');
-      setOpen(false);
-      ResetInputs();
+      if (data) {
+        toast.success(data.message);
+        navigate('/admin/coupon');
+        setOpen(false);
+        ResetInputs();
+      } else {
+        throw new Error('No data received from server');
+      }
+    } catch (error) {
+      toast.error('Failed to create coupon');
+      console.error('Coupon creation failed:', error);
     }
   };
 

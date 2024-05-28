@@ -1,4 +1,4 @@
-import React, {
+import {
   ChangeEvent,
   FormEvent,
   ReactElement,
@@ -11,21 +11,21 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Column } from 'react-table';
 
-import { Skeleton } from '../../../components/Loader';
-import AdminSidebar from '../../../components/admin/AdminSidebar';
-import TableHOC from '../../../components/admin/TableHOC';
+import { Skeleton } from '@/components/Loader';
+import AdminSidebar from '@/components/admin/AdminSidebar';
+import TableHOC from '@/components/admin/TableHOC';
 import {
   useAllCouponsQuery,
   useDeleteCouponMutation,
   useUpdateCouponMutation,
-} from '../../../redux/api/couponApi';
-import { RootState } from '../../../redux/store';
+} from '@/redux/api/couponApi';
+import { RootState } from '@/redux/store';
 import {
   CustomError,
   couponRequest,
   createCouponResponse,
-  getCouponAllResponse,
-} from '../../../types/api-types';
+  getCouponResponse,
+} from '@/types/api-types';
 
 type DataType = {
   _id: string;
@@ -63,7 +63,7 @@ const CouponsManagement = () => {
 
   const [coupon, setCoupon] = useState<string>('');
   const [couponId, setCouponId] = useState<string>('');
-  const [amount, setAmount] = useState<string>('');
+  const [amount, setAmount] = useState<number>(0);
 
   const { user } = useSelector((state: RootState) => state.userReducer);
 
@@ -79,7 +79,7 @@ const CouponsManagement = () => {
   useEffect(() => {
     if (data)
       setRows(
-        data.coupons.map((i) => ({
+        data?.coupons?.map((i) => ({
           _id: i._id,
           amount: i.amount,
           coupon: i.coupon,
@@ -97,7 +97,7 @@ const CouponsManagement = () => {
   }, [data]);
   useEffect(() => {
     try {
-      const result: getCouponAllResponse | undefined = data?.coupons?.find(
+      const result: getCouponResponse | undefined = data?.coupons?.find(
         (i) => i._id === couponId,
       );
 
@@ -124,7 +124,7 @@ const CouponsManagement = () => {
   };
   const updateHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const { data }: { data: createCouponResponse } = await updateCoupon(
+    const { data }: { data?: createCouponResponse } = await updateCoupon(
       objectData,
     );
 
@@ -134,7 +134,7 @@ const CouponsManagement = () => {
     }
   };
   const deleteHandler = async () => {
-    const { data }: { data: createCouponResponse } = await deleteCoupon({
+    const { data }: { data?: createCouponResponse } = await deleteCoupon({
       userId: user?._id,
       couponId: couponId,
     });
@@ -174,7 +174,7 @@ const CouponsManagement = () => {
             <input
               value={amount}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                setAmount(e.target.value)
+                setAmount(Number(e.target.value))
               }
               type="text"
               placeholder="Enter amount"
@@ -185,7 +185,6 @@ const CouponsManagement = () => {
             <button
               type="button"
               onClick={() => {
-                ResetInputs();
                 setOpen(false);
               }}
             >

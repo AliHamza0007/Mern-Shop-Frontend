@@ -1,17 +1,17 @@
-import React, { ReactElement, useEffect, useState } from 'react';
+import AdminSidebar from '@/components/admin/AdminSidebar';
+import TableHOC from '@/components/admin/TableHOC';
+import { ReactElement, useEffect, useState } from 'react';
 import { FaPlus } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { Column } from 'react-table';
-import AdminSidebar from '../../components/admin/AdminSidebar';
-import TableHOC from '../../components/admin/TableHOC';
 
-import { useAllProductsQuery } from '../../redux/api/productAPI';
+import { useAllProductsQuery } from '@/redux/api/productAPI';
+import { RootState } from '@/redux/store';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../redux/store';
 
-import { CustomError } from '../../types/api-types';
+import { Skeleton } from '@/components/Loader';
+import { CustomError } from '@/types/api-types';
 import toast from 'react-hot-toast';
-import { Skeleton } from '../../components/Loader';
 const server = import.meta.env.VITE_SERVER_URL;
 interface DataType {
   photo: ReactElement;
@@ -48,7 +48,7 @@ const Products = () => {
   const [rows, setRows] = useState<DataType[]>([]);
   const { user } = useSelector((state: RootState) => state.userReducer);
 
-  const { data, isError, isLoading, error } = useAllProductsQuery(user?._id!);
+  const { data, isError, error } = useAllProductsQuery(user?._id!);
   if (isError) {
     const err = error as CustomError;
     toast.error(err.data.message);

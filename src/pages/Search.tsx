@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
+import { Skeleton } from '@/components/Loader';
+import ProductCard from '@/components/ProductCard';
+import {
+  useCategoriesQuery,
+  useSearchProductsQuery,
+} from '@/redux/api/productAPI';
+import { addToCart } from '@/redux/reducer/cartReducer';
+import { CustomError } from '@/types/api-types';
+import { CartItemType } from '@/types/types';
+import { useState } from 'react';
 import toast from 'react-hot-toast';
 import { FaBars } from 'react-icons/fa';
 import { FaXmark } from 'react-icons/fa6';
 import { useDispatch } from 'react-redux';
-import { Skeleton } from '../components/Loader';
-import ProductCard from '../components/ProductCard';
-import {
-  useCategoriesQuery,
-  useSearchProductsQuery,
-} from '../redux/api/productAPI';
-import { addToCart } from '../redux/reducer/cartReducer';
-import { CustomError } from '../types/api-types';
-import { CartItemType } from '../types/types';
 const server = import.meta.env.VITE_SERVER_URL;
 
 const Search = () => {

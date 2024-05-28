@@ -5,7 +5,7 @@ import {
   NewOrderRequest,
   OrderDetailsResponse,
   UpdateOrderRequest,
-} from '../../types/api-types';
+} from '@/types/api-types';
 
 const server = import.meta.env.VITE_SERVER_URL;
 const server_v1 = import.meta.env.VITE_SERVER_VERSION;

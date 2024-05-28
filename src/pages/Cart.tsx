@@ -1,19 +1,19 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import toast from 'react-hot-toast';
-import { VscError } from 'react-icons/vsc';
-import { useDispatch, useSelector } from 'react-redux';
-import CartEmpty from '../components/CartEmpty';
-import { Link } from 'react-router-dom';
-import CartItemCard from '../components/CartItemCard';
+import CartEmpty from '@/components/CartEmpty';
+import CartItemCard from '@/components/CartItemCard';
 import {
   addToCart,
   calculatePrice,
   discountApplied,
   removeCartItem,
-} from '../redux/reducer/cartReducer';
-import { RootState } from '../redux/store';
-import { CartItemType } from '../types/types';
+} from '@/redux/reducer/cartReducer';
+import { RootState } from '@/redux/store';
+import { CartItemType } from '@/types/types';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
+import { VscError } from 'react-icons/vsc';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 const Cart = () => {
   const server = import.meta.env.VITE_SERVER_URL;
   const { cartItems, subtotal, tax, total, shippingCharges, discount } =

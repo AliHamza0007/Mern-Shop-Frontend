@@ -1,5 +1,6 @@
-import React, { ChangeEvent, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
+import { IconType } from 'react-icons';
 import { AiFillFileText } from 'react-icons/ai';
 import {
   FaChartBar,
@@ -8,6 +9,7 @@ import {
   FaGamepad,
   FaStopwatch,
 } from 'react-icons/fa';
+import { FaXmark } from 'react-icons/fa6';
 import { HiMenuAlt4 } from 'react-icons/hi';
 import { IoIosPeople } from 'react-icons/io';
 import {
@@ -16,8 +18,6 @@ import {
   RiShoppingBag3Fill,
 } from 'react-icons/ri';
 import { Link, Location, useLocation } from 'react-router-dom';
-import { IconType } from 'react-icons';
-import { FaXmark } from 'react-icons/fa6';
 
 const AdminSidebar = () => {
   const location = useLocation();
@@ -38,9 +38,9 @@ const AdminSidebar = () => {
       window.removeEventListener('resize', resizeHandler);
     };
   }, []);
-  const handleClickOutsideModal = (event) => {
+  const handleClickOutsideModal = (event: MouseEvent | TouchEvent) => {
     const modal = document.querySelector('.admin-container');
-    if (modal && !modal.contains(event.target)) {
+    if (modal && !modal.contains(event.target as Node)) {
       setShowModal(false);
     }
   };

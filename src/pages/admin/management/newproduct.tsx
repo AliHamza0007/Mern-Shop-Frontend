@@ -1,11 +1,11 @@
-import React, { ChangeEvent, FormEvent, useState } from 'react';
+import { responseToast } from '@/utils/Feature';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { responseToast } from '../../../utils/Feature';
 
-import AdminSidebar from '../../../components/admin/AdminSidebar';
-import { useNewProductMutation } from '../../../redux/api/productAPI';
-import { RootState } from '../../../redux/store';
+import AdminSidebar from '@/components/admin/AdminSidebar';
+import { useNewProductMutation } from '@/redux/api/productAPI';
+import { RootState } from '@/redux/store';
 
 const NewProduct = () => {
   const { user } = useSelector((state: RootState) => state.userReducer);

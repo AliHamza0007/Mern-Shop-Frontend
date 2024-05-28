@@ -1,6 +1,5 @@
-import React from 'react';
+import { CartItemType } from '@/types/types';
 import { FaPlus } from 'react-icons/fa';
-import { CartItemType } from '../types/types';
 
 interface ProductsProps {
   name: string;

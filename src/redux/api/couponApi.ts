@@ -1,13 +1,13 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import {
   couponRequest,
   createCouponResponse,
   getCouponAllResponse,
-} from '../../types/api-types';
+} from '@/types/api-types';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 const server = import.meta.env.VITE_SERVER_URL;
 const server_v1 = import.meta.env.VITE_SERVER_VERSION;
-type couponDelete = { couponId: string; userId: string };
+type couponDelete = { couponId: string; userId: string | undefined };
 export const CouponApi = createApi({
   reducerPath: 'CouponApi',
   baseQuery: fetchBaseQuery({

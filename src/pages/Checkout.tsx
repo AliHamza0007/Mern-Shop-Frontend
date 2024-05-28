@@ -1,3 +1,8 @@
+import { useNewOrderMutation } from '@/redux/api/orderAPI';
+import { resetCart } from '@/redux/reducer/cartReducer';
+import { RootState } from '@/redux/store';
+import { NewOrderRequest } from '@/types/api-types';
+import { responseToast } from '@/utils/Feature';
 import {
   Elements,
   PaymentElement,
@@ -5,15 +10,10 @@ import {
   useStripe,
 } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
-import React, { FormEvent, useState } from 'react';
+import { FormEvent, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
-import { useNewOrderMutation } from 'src/redux/api/orderAPI';
-import { resetCart } from '../redux/reducer/cartReducer';
-import { RootState } from '../redux/store';
-import { NewOrderRequest } from '../types/api-types';
-import { responseToast } from '../utils/Feature';
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_KEY);
 

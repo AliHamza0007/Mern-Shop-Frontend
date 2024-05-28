@@ -9,7 +9,7 @@ import {
   SearchProductsRequest,
   SearchProductsResponse,
   UpdateProductRequest,
-} from '../../types/api-types';
+} from '@/types/api-types';
 
 // Import the server URL and version from environment variables
 const server = import.meta.env.VITE_SERVER_URL;

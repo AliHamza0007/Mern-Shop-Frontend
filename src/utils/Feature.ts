@@ -1,4 +1,4 @@
-import { MessageResponse } from '../types/api-types';
+import { MessageResponse } from '@/types/api-types';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query/react';
 import { SerializedError } from '@reduxjs/toolkit';
 import { NavigateFunction } from 'react-router-dom';
@@ -31,10 +31,13 @@ export const getLastMonths = () => {
   };
 };
 
-type ResType = {
-  data: MessageResponse;
-  error: FetchBaseQueryError | SerializedError;
-};
+type ResType =
+  | {
+      data: MessageResponse;
+    }
+  | {
+      error: FetchBaseQueryError | SerializedError;
+    };
 
 export const responseToast = (
   res: ResType,
@@ -42,13 +45,20 @@ export const responseToast = (
   url: string,
 ) => {
   if ('data' in res) {
+    // If 'data' exists in res, it means it's a successful response
     toast.success(res.data.message);
     if (navigate) {
       navigate(url);
     }
   } else {
-    const error = res?.error as FetchBaseQueryError | SerializedError;
-    const message = (error?.data as MessageResponse).message;
-    toast.error(message);
+    // If 'error' exists in res, it means it's an error response
+    const error = res.error;
+    if ('data' in error && (error.data as MessageResponse).message) {
+      // We have a MessageResponse error
+      toast.error((error.data as MessageResponse).message);
+    } else {
+      // We have another type of error
+      toast.error('An error occurred');
+    }
   }
 };

@@ -1,13 +1,11 @@
-import React from 'react';
+import { Skeleton } from '@/components/Loader';
+import ProductCard from '@/components/ProductCard';
+import { useLatestProductsQuery } from '@/redux/api/productAPI';
+import { addToCart } from '@/redux/reducer/cartReducer';
+import { CartItemType } from '@/types/types';
 import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import cover from '../assets/cover.jpg';
-import { Skeleton } from '../components/Loader';
-import ProductCard from '../components/ProductCard';
-import { useLatestProductsQuery } from '../redux/api/productAPI';
-import { addToCart } from '../redux/reducer/cartReducer';
-import { CartItemType } from '../types/types';
 const Home = () => {
   const dispatch = useDispatch();
   const addToCartHandler = (cartItem: CartItemType) => {

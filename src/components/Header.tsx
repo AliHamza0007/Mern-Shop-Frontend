@@ -1,5 +1,7 @@
+import { auth } from '@/firebase';
+import { RootState } from '@/redux/store';
 import { signOut } from 'firebase/auth';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import {
   FaSearch,
@@ -8,17 +10,11 @@ import {
   FaSignOutAlt,
   FaUser,
 } from 'react-icons/fa';
-import { useDispatch, useSelector } from 'react-redux';
+import {  useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { auth } from '../firebase';
-
-import { RootState } from '../redux/store';
-import { UserType } from '../types/types';
-import { userNotExist } from '../redux/reducer/userReducer';
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { user } = useSelector((state: RootState) => state.userReducer);
-  const dispatch = useDispatch();
   const logoutHandler = async () => {
     try {
       await signOut(auth);

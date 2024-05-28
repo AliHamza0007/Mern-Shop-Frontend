@@ -1,15 +1,14 @@
+import { auth } from '@/firebase';
+import { getUser, useLoginMutation } from '@/redux/api/userAPI';
+import { userExist, userNotExist } from '@/redux/reducer/userReducer';
+import { MessageResponse } from '@/types/api-types';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import React from 'react';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 import { FcGoogle } from 'react-icons/fc';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { auth } from '../firebase';
-import { getUser, useLoginMutation } from '../redux/api/userAPI';
-import { userExist, userNotExist } from '../redux/reducer/userReducer';
-import { MessageResponse } from '../types/api-types';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -33,18 +32,16 @@ const Login = () => {
       // console.log(data);
 
       const res = await login(data);
-      // res && console.log(res);
-
       if ('data' in res) {
-        const data = await getUser(user.uid);
-
-        toast.success(res.data.message);
+        const { result, message } = await getUser(user.uid);
+        dispatch(userExist(result));
+        toast.success(message);
         navigate('/');
-        // console.log(data);
-        dispatch(userExist(data?.result));
       } else {
+        // If 'data' doesn't exist, it's an error response
         const error = res.error as FetchBaseQueryError;
-        const message = (error.data as MessageResponse).message;
+        const message =
+          (error.data as MessageResponse)?.message ?? 'An error occurred';
         toast.error(message);
         dispatch(userNotExist());
       }

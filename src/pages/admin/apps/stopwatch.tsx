@@ -1,14 +1,14 @@
-import AdminSidebar from "../../../components/admin/AdminSidebar";
-import { useState, useEffect } from "react";
+import AdminSidebar from '@/components/admin/AdminSidebar';
+import { useState, useEffect } from 'react';
 
 const formatTime = (timeInSeconds: number) => {
   const hours = Math.floor(timeInSeconds / 3600);
   const minutes = Math.floor((timeInSeconds % 3600) / 60);
   const seconds = timeInSeconds % 60;
 
-  const hoursInString = hours.toString().padStart(2, "0");
-  const minutesInString = minutes.toString().padStart(2, "0");
-  const secondsInString = seconds.toString().padStart(2, "0");
+  const hoursInString = hours.toString().padStart(2, '0');
+  const minutesInString = minutes.toString().padStart(2, '0');
+  const secondsInString = seconds.toString().padStart(2, '0');
 
   return `${hoursInString}:${minutesInString}:${secondsInString}`;
 };
@@ -43,7 +43,7 @@ const Stopwatch = () => {
           <div className="stopwatch">
             <h2>{formatTime(time)}</h2>
             <button onClick={() => setIsRunning((prev) => !prev)}>
-              {isRunning ? "Stop" : "Start"}
+              {isRunning ? 'Stop' : 'Start'}
             </button>
             <button onClick={resetHandler}>Reset</button>
           </div>

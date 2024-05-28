@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   AiOutlineSortAscending,
   AiOutlineSortDescending,
@@ -6,10 +5,10 @@ import {
 
 import {
   Column,
+  TableOptions,
   usePagination,
   useSortBy,
   useTable,
-  TableOptions,
 } from 'react-table';
 
 function TableHOC<T extends Object>(
@@ -51,7 +50,7 @@ function TableHOC<T extends Object>(
             {headerGroups.map((headerGroup) => (
               <tr {...headerGroup.getHeaderGroupProps()}>
                 {headerGroup.headers.map((column) => (
-                  <th  {...column.getHeaderProps(column.getSortByToggleProps())}>
+                  <th {...column.getHeaderProps(column.getSortByToggleProps())}>
                     {column.render('Header')}
                     {column.isSorted && (
                       <span>
@@ -69,7 +68,7 @@ function TableHOC<T extends Object>(
             ))}
           </thead>
           <tbody {...getTableBodyProps()}>
-            {page.map((row, i) => {
+            {page.map((row) => {
               prepareRow(row);
 
               return (

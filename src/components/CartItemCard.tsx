@@ -1,10 +1,7 @@
-import React from 'react';
+import { CartItemType } from '@/types/types';
 import { FaMinus, FaPlus, FaTrash } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { CartItemType } from '../types/types';
-interface Component {
-  cartItem: any;
-}
+
 
 type CartItemProps = {
   cartItem: CartItemType;

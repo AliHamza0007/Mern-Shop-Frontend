@@ -10,10 +10,10 @@ import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useNewOrderMutation } from 'src/redux/api/orderAPI';
-import { resetCart } from 'src/redux/reducer/cartReducer';
-import { RootState } from 'src/redux/store';
+import { resetCart } from '../redux/reducer/cartReducer';
+import { RootState } from '../redux/store';
 import { NewOrderRequest } from '../types/api-types';
-import { responseToast } from 'src/utils/Feature';
+import { responseToast } from '../utils/Feature';
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_KEY);
 

@@ -109,7 +109,7 @@ const NewProduct = () => {
               <input required type="file" onChange={changeImageHandler} />
             </div>
 
-            {photoPrev && <img ../../..={photoPrev} alt="New Image" />}
+            {photoPrev && <img src={photoPrev} alt="New Image" />}
             <button type="submit">Create</button>
           </form>
         </article>

@@ -5,14 +5,10 @@
     "module": "ESNext",
     "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true,
-    "strict": true, 
+    "strict": true,
     "baseUrl": ".",
-    "jsx": "react", // A,s
-    "paths": {
-      "src/*": ["./src/*"],
-    },
-
-   
+    "jsx": "react" // A,s
   },
-  "include": ["vite.config.ts", "src"]
+
+  "include": ["vite.config.ts"]
 }

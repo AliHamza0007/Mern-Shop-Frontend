@@ -68,6 +68,12 @@ VITE_STRIPE_KEY=""
 
 - [Download recording.mp4](./ShowCase/recording.mp4)
 
+
+
+
+https://github.com/AliHamza0007/Mern-Shop-Frontend/assets/141808379/a8d9023c-2687-4d68-9c59-427e4bd58fb8
+
+
 <div class="d-flex">
 
 <img src="./ShowCase/1.png"  width="30%" height="350px"  />

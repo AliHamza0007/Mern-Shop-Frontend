@@ -66,6 +66,8 @@ VITE_STRIPE_KEY=""
 
 **Project Images**
 
+- [Download recording.mp4](./ShowCase/recording.mp4)
+
 <div class="d-flex">
 
 <img src="./ShowCase/1.png"  width="30%" height="350px"  />
